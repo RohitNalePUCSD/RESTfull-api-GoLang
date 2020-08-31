@@ -48,6 +48,24 @@ func dbConnection() (conn *sql.DB) {
 	}
 	return
 }
+func createTable() {
+
+	db := dbConnection()
+
+	result, err := db.Query("DROP TABLE IF EXISTS artical;")
+	if err != nil {
+		panic(err.Error())
+	}
+	defer result.Close()
+
+	result, err = db.Query("CREATE Table artical(Id varchar(5), Title varchar(20), Descp varchar(30),Content varchar(10));")
+	if err != nil {
+		panic(err.Error())
+	}
+	defer result.Close()
+
+	fmt.Println("Table created successfully..")
+}
 
 func postPost(w http.ResponseWriter, r *http.Request) {
 
@@ -178,6 +196,7 @@ func serverStart() {
 }
 
 func main() {
-
+	
+	createTable()
 	serverStart()
 }
