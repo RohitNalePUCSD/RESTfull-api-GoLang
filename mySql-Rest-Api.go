@@ -42,7 +42,7 @@ func InitRouter() (router *mux.Router) {
 
 func dbConnection() (conn *sql.DB) {
 
-	conn, err := sql.Open("mysql", "rohit:rohit@/articalDB")
+	conn, err := sql.Open("mysql", DBUSER+":"+DBPASS+"@/"+DBNAME)
 	if err != nil {
 		panic(err)
 	}
