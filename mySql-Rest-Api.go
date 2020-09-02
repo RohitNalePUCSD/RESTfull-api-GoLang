@@ -22,8 +22,8 @@ var (
 type articals struct {
 	Id      string `json:"Id"`
 	Title   string `json:"Title"`
-	Descp   string `json:"desc"`
-	Content string `json:"content"`
+	Descp   string `json:"Descp"`
+	Content string `json:"Content"`
 }
 
 func InitRouter() (router *mux.Router) {
